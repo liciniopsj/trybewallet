@@ -4,14 +4,17 @@ export const USER_AUTH = 'USER_AUTH';
 // export const REQUEST_CURRENCIES = 'REQUEST_CURRENCIES';
 export const REQUEST_CURRENCIES_SUCCESS = 'REQUEST_CURRENCIES_SUCCESS';
 
+export const ADD_EXPENSE = 'ADD_EXPENSE';
+
 export const userAuth = (payload) => ({
   type: USER_AUTH,
   payload,
 });
 
-// const requestCurrencies = () => ({
-//   type: REQUEST_CURRENCIES,
-// });
+export const addExpense = (payload, exchangeRates) => ({
+  type: ADD_EXPENSE,
+  payload: { ...payload, exchangeRates },
+});
 
 const requestCurrenciesSuccess = (payload) => ({
   type: REQUEST_CURRENCIES_SUCCESS,
