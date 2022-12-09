@@ -6,8 +6,15 @@ export const REQUEST_CURRENCIES_SUCCESS = 'REQUEST_CURRENCIES_SUCCESS';
 
 export const ADD_EXPENSE = 'ADD_EXPENSE';
 
+export const DELETE_EXPENSE = 'DELETE_EXPENSE';
+
 export const userAuth = (payload) => ({
   type: USER_AUTH,
+  payload,
+});
+
+export const deleteExpense = (payload) => ({
+  type: DELETE_EXPENSE,
   payload,
 });
 
@@ -22,10 +29,6 @@ const requestCurrenciesSuccess = (payload) => ({
 });
 
 export const fetchCurrencies = () => async (dispatch) => {
-  // 1. Aviso de inicio do Fetch
-  // dispatch(requestCurrencies());
-  // 2. Fazendo o Fetch
   const data = await getCurrencies();
-  // 3. Avisando que o request foi bem sucedido e entregando
   dispatch(requestCurrenciesSuccess(data));
 };

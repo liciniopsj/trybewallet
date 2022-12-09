@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { deleteExpense } from '../redux/actions';
 
 class Table extends Component {
+  handleDeleteBtn = (elementId) => {
+    const { dispatch, expenses } = this.props;
+    // console.log(expenses);
+    const filteredExpenses = expenses.filter((e) => e.id !== elementId);
+    // console.log(filteredExpenses);
+    dispatch(deleteExpense(filteredExpenses));
+  };
+
   render() {
     const { expenses } = this.props;
     return (
@@ -37,6 +46,15 @@ class Table extends Component {
                         .toFixed(2)}`}
                     </td>
                     <td>Real</td>
+                    <td>
+                      <button
+                        data-testid="delete-btn"
+                        type="button"
+                        onClick={ () => { this.handleDeleteBtn(e.id); } }
+                      >
+                        Delete
+                      </button>
+                    </td>
                   </tr>))
             }
           </tbody>
