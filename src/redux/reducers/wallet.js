@@ -1,3 +1,4 @@
+import { REQUEST_CURRENCIES_SUCCESS } from '../actions';
 // Esse reducer será responsável por tratar o todas as informações relacionadas as despesas
 
 const INITIAL_STATE = {
@@ -9,9 +10,10 @@ const INITIAL_STATE = {
 
 export default function wallet(state = INITIAL_STATE, action) {
   switch (action.type) {
-  case 'ACTION':
+  case REQUEST_CURRENCIES_SUCCESS:
     return {
       ...state,
+      currencies: Object.keys(action.payload),
     };
 
   default:
