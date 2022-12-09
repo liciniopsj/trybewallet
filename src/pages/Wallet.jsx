@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
+import Table from '../components/Table';
 import WalletFrom from '../components/WalletForm';
 
 class Wallet extends React.Component {
@@ -11,7 +12,7 @@ class Wallet extends React.Component {
         <br />
         <WalletFrom />
         <br />
-        TrybeWallet
+        <Table />
       </div>
     );
   }
