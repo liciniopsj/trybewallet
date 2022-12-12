@@ -8,14 +8,40 @@ export const ADD_EXPENSE = 'ADD_EXPENSE';
 
 export const DELETE_EXPENSE = 'DELETE_EXPENSE';
 
+export const ID_TO_EDIT = 'ID_TO_EDIT';
+
+export const EDIT_STATUS_TRUE = 'EDIT_STATUS_TRUE';
+
+export const EDIT_STATUS_FALSE = 'EDIT_STATUS_FALSE';
+
+export const EDIT_EXPENSES = 'EDIT_EXPENSES';
+
 export const userAuth = (payload) => ({
   type: USER_AUTH,
+  payload,
+});
+
+export const setIdToEdit = (payload) => ({
+  type: ID_TO_EDIT,
+  payload,
+});
+
+export const editExpenses = (payload) => ({
+  type: EDIT_EXPENSES,
   payload,
 });
 
 export const deleteExpense = (payload) => ({
   type: DELETE_EXPENSE,
   payload,
+});
+
+export const editStatusToTrue = () => ({
+  type: EDIT_STATUS_TRUE,
+});
+
+export const editStatusToFalse = () => ({
+  type: EDIT_STATUS_FALSE,
 });
 
 export const addExpense = (payload, exchangeRates) => ({

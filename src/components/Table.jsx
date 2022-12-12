@@ -13,7 +13,7 @@ class Table extends Component {
   };
 
   render() {
-    const { expenses } = this.props;
+    const { expenses, handleEditBtn } = this.props;
     return (
       <div>
         <table>
@@ -48,6 +48,13 @@ class Table extends Component {
                     <td>Real</td>
                     <td>
                       <button
+                        data-testid="edit-btn"
+                        type="button"
+                        onClick={ () => { handleEditBtn(e.id); } }
+                      >
+                        Editar
+                      </button>
+                      <button
                         data-testid="delete-btn"
                         type="button"
                         onClick={ () => { this.handleDeleteBtn(e.id); } }
@@ -70,6 +77,7 @@ const mapStateToProps = (state) => ({
 
 Table.propTypes = {
   expenses: PropTypes.array,
+  handleEditBtn: PropTypes.func,
 }.isRequired;
 
 export default connect(mapStateToProps)(Table);

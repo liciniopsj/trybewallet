@@ -1,4 +1,11 @@
-import { REQUEST_CURRENCIES_SUCCESS, ADD_EXPENSE, DELETE_EXPENSE } from '../actions';
+import {
+  REQUEST_CURRENCIES_SUCCESS,
+  ADD_EXPENSE, DELETE_EXPENSE,
+  ID_TO_EDIT,
+  EDIT_STATUS_FALSE,
+  EDIT_STATUS_TRUE,
+  EDIT_EXPENSES,
+} from '../actions';
 // Esse reducer será responsável por tratar o todas as informações relacionadas as despesas
 
 const INITIAL_STATE = {
@@ -25,7 +32,26 @@ export default function wallet(state = INITIAL_STATE, action) {
       ...state,
       expenses: action.payload,
     };
-
+  case ID_TO_EDIT:
+    return {
+      ...state,
+      idToEdit: action.payload,
+    };
+  case EDIT_STATUS_TRUE:
+    return {
+      ...state,
+      editor: true,
+    };
+  case EDIT_STATUS_FALSE:
+    return {
+      ...state,
+      editor: false,
+    };
+  case EDIT_EXPENSES:
+    return {
+      ...state,
+      expenses: [...action.payload],
+    };
   default:
     return state;
   }
